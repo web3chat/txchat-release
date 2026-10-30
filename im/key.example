@@ -1,0 +1,11 @@
+# 复制为同目录 key 后按需修改（key 勿提交仓库）:
+#   cp script/compose/key.example script/compose/key
+#
+# make init-compose 会读取本文件，把 CLUSTER_ID / PRESENCE_URL 写入 logic.toml 与 .env。
+# 若未配置，则尝试从同级 dtalk/run_compose/.env 同步（与 MYSQL 密码同源）。
+#
+# 仅支持 KEY=value（不要写 export）；命令行 make VAR=... 优先级更高。
+
+CLUSTER_ID=cluster-a
+# 仅当 dtalk 的 FEDERATION_ENABLED=true 时才会使用。单集群留空。
+PRESENCE_URL=

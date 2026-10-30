@@ -1,0 +1,8 @@
+.env
+**/key
+images/
+*.tar
+*.tar.gz
+users.txt
+
+doc/

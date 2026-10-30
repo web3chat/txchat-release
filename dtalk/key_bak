@@ -1,0 +1,22 @@
+# 复制为同目录 key 后按需修改（key 勿提交仓库）:
+#   cp script/compose/key.example script/compose/key
+#
+# make init-compose 会读取本文件：
+#   - 密码 → envfill 写入 run_compose/.env
+#   - 联邦变量 → 写入 .env，并注入各模块 toml（含 Presence URL）
+#
+# 仅支持 KEY=value（不要写 export）；命令行 make VAR=... 优先级更高。
+# 请使用 LF 换行（Unix）；若从 Windows 编辑出现 CRLF，envfill 会自动去除 \r。
+
+# ---------- 密码（可选；不填则 init-compose 自动随机生成）----------
+MYSQL_ROOT_PASSWORD=
+MINIO_ROOT_PASSWORD=
+
+# ---------- 联邦 / Presence（可选）----------
+# 单集群保持 false；联邦改为 true
+FEDERATION_ENABLED=false
+CLUSTER_ID=cluster-a
+# 中心 Presence HTTP（全网一套；docker 网络内一般用服务名）
+PRESENCE_URL=http://47.79.39.101:18050
+# Snowflake Node，跨集群必须互斥（建议 32～1023）
+GENERATOR_NODE=1
